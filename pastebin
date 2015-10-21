@@ -1,0 +1,28 @@
+{
+        "Id":  2112,
+        "Description":  "Microsoft Excel",
+        "FileVersion":  "14.0.4734.1000",
+        "MainWindowTitle":  "Microsoft Excel (Product Activation Failed) - Updated directory",
+        "StartTime":  "\/Date(1442220063330)\/"
+    },
+    {
+        "Id":  8516,
+        "Description":  "Firefox",
+        "FileVersion":  "40.0.3",
+        "MainWindowTitle":  "Using the Set-ExecutionPolicy Cmdlet - Mozilla Firefox",
+        "StartTime":  "\/Date(1442237421681)\/"
+    },
+    {
+        "Id":  7860,
+        "Description":  "Foxit Updater",
+        "FileVersion":  "6, 0, 0, 1101",
+        "MainWindowTitle":  "Foxit Reader Updater",
+        "StartTime":  "\/Date(1442219431235)\/"
+    },
+    {
+        "Id":  9076,
+        "Description":  "Windows PowerShell ISE",
+        "FileVersion":  "10.0.10240.16384 (th1.150709-1700)",
+        "MainWindowTitle":  "Administrator: Windows PowerShell ISE",
+        "StartTime":  "\/Date(1442237677944)\/"
+    }

@@ -1,0 +1,161 @@
+
+/* 
+    Created on : 23-Aug-2015, 20:50:32
+    Author     : Kelli
+*/
+
+/**Reset page **/
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+body{
+    margin-left: 200px;
+    margin-right: 200px;
+    font-family: Roboto,Arial;
+    color:#999999;
+    font-size: 0.9em;
+    width:auto;
+}
+
+#banner{
+    width: auto;
+    height: 50px;
+    background-image:url("../images/ptrack4.jpg");
+    background-repeat: no-repeat;
+    padding-left: 20px;
+    font-weight:800;
+    padding-top:20px;
+    margin-bottom: 20px;
+}
+
+hr{
+    color:#999999;
+    margin-bottom: 20px;
+}
+a#tab-bar {
+    display: inline-block;
+    width: 100px;
+    height: 25px;
+    padding: 3px 30px;
+    text-decoration: none;
+    font-weight:700;
+    color:#ffffff;
+    background: #ff3333;
+    margin-bottom:10px;
+    vertical-align: text-top;
+}
+
+a#tab-bar:hover{
+    color: #999999;
+    background:#ff9999;
+}
+
+a#tab-bar:visited{
+    color: #999999;
+    background:#ff9999;
+}
+
+a#tab-bar img{
+    height: 25px;
+    width:25px;
+    margin-right:10px;
+    vertical-align: bottom;
+    
+}
+
+#hosts-panel{
+    width:20%;
+    float: left;
+}
+
+caption{
+    font-weight:bold;
+    font-size:1.0em;
+    text-transform: uppercase;
+    padding: 0 0 5px;
+}
+
+tbody tr:hover td{
+    background: #dedef8;
+    color: #ffffff;
+}
+
+table{
+    border:1px #0099ff solid;
+    border-collapse: collapse;
+    width:100%;
+    padding: 5px;
+    border-right: 0px;
+    border-left: 0px;
+}
+
+td{
+    border:1px #0099ff solid;
+    border-collapse: collapse;
+    /*width:100%;*/
+    padding: 5px;
+    border-right: 0px;
+    border-left: 0px;
+}
+
+table, td a{
+    text-decoration: none;
+    color:#666666;
+}
+
+table thead{
+    background: #0099ff;
+    color: #ffffff;
+    margin:0px;
+    font-weight:bold;
+}
+
+#host-block{
+    width:70px;
+    height:80px;
+    padding: 5px;
+    margin:2px;
+    display:inline-table;
+}
+
+#host-block a{
+    display: block;
+    height: 60px;
+    width: 70px;
+    padding: 5px;
+    text-decoration: none;
+    background-image: url(../images/flat.png);
+    background-size: 70px;
+    background-repeat: no-repeat;
+    background-origin:content-box;
+}
+
+#host-block a:hover{
+    display: block;
+    height: 60px;
+    padding: 5px;
+    width: 70px;
+    text-decoration: none;
+    background-image: url(../images/flat3.png);
+}
+
+span{
+    position:relative;
+    top:65px;
+    background: #006600;
+    color:#ffffff;
+    text-align: center;
+    padding:2px;
+    font-size:x-small;
+    display: block;
+    width:65px;
+    border:#006600 solid thin;
+    border-radius: 2px;
+}
+
+#chart_div{
+    width:500px;
+    height: 100px;
+}
