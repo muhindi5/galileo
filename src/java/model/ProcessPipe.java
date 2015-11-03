@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -37,7 +38,7 @@ public class ProcessPipe {
     }
 
     public ProcessPipe(String host) {
-        selectedHost = host;
+        selectedHost = host.trim();
         connection = DbConnection.getConnection();
     }
 
@@ -61,14 +62,15 @@ public class ProcessPipe {
 
     /* Check database for process with same id. If exists, update timestamp entry
      else create new process and insert into  database */
-    public void saveProcess(Process p, String hostName) throws SQLException {
+    public void saveProcess(Process p) throws SQLException {
 
         statement = connection.prepareCall(saveProcess);
         statement.setString(1, p.getProcId());
         statement.setString(2, p.getDescription());
         statement.setString(3, p.getWinTitle());
         statement.setString(4, new java.sql.Timestamp(Long.parseLong(p.getStartTime())).toString());
-        statement.setInt(5, 1);
+        //get the id of the host using the host name supplied in url
+        statement.setInt(5, getId(selectedHost));
         int done = statement.executeUpdate();
         Logger.getLogger(ProcessPipe.class.getName()).log(Level.INFO, "Saved process...{0} ", String.valueOf(done));
     }
@@ -113,7 +115,7 @@ public class ProcessPipe {
         int hostId;
         try {
             PreparedStatement processListing = connection.prepareCall(recentProcesses);
-            if (selectedHost.equals("HOST_1")) {
+            if (selectedHost.equals("LUNAR")) {
                 hostId = 1; //default to first host in database when loading initially.
             } else {
                 hostId = getTargetHostId(selectedHost);
@@ -167,6 +169,26 @@ public class ProcessPipe {
         } catch (SQLException ex) {
             Logger.getLogger(ProcessPipe.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    /**Utility method: get host id from host name */
+    private int getId(String hostName){
+        int hostId = 0;
+        if(hostName!=null){
+            try {
+                System.out.println("Host Name = "+hostName);
+                Statement s = connection.createStatement();
+                ResultSet singleResult =s.executeQuery
+                    ("select host_id  from hosts where system_name='"+hostName+"'");
+                if(singleResult.next())
+                hostId = singleResult.getInt("host_id");
+                Logger.getLogger(ProcessPipe.class.getName()).log(Level.INFO,
+                        "Id for this host is: {0}",hostId);
+            } catch (SQLException ex) {
+                Logger.getLogger(ProcessPipe.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return hostId;
     }
 
 }
