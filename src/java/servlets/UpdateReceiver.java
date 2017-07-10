@@ -18,7 +18,7 @@ import model.ProcessPipe;
 import model.utilities.DbUtils;
 
 /**
- * 1. Receive request with JSON data (running processes) from Powershell script.
+ * 1. Receive request with JSON data (running processes)
  * 2. Persist each processes into the database.
  *
  * @author Kelli
@@ -68,8 +68,6 @@ public class UpdateReceiver extends HttpServlet {
                     for (Process currentProc : processes) {
                         if (currentProc.getProcId().equals(process.getProcId())) {
                             Logger.getLogger(UpdateReceiver.class.getName()).log(Level.INFO,
-                                    "Process is exists...updating details!");
-                            Logger.getLogger(UpdateReceiver.class.getName()).log(Level.INFO,
                                     "Incoming process: {1}\nStored Process: {0}",
                                     new Object[]{currentProc.getProcId(),process.getProcId()});
                             piper.updateProcess(process);
@@ -86,40 +84,19 @@ public class UpdateReceiver extends HttpServlet {
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
     @Override
     public String getServletInfo() {
         return "Short description";
